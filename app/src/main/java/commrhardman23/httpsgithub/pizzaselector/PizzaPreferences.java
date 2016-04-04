@@ -57,10 +57,67 @@ public class PizzaPreferences extends AppCompatActivity {
      */
     public void calculateCost(View vw){
 
+
         Intent calculatePizzaCost = new Intent(this, CostCalculator.class);
         boolean[] hasToppings = new boolean[toppings.length];
+        String size="";
+        String crustType="";
 
-        //insert your code here
+        //insert your code here\
+
+        for (int i=0; i<toppings.length; i++)
+
+        {
+            if(toppings[i].isChecked()){
+                hasToppings[i]=true;
+            }
+        }
+        if ()
+        //SIZE
+        if (rdobtnIndividual.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION", "SIZE_INDIVIDUAL");
+        }
+        else if (rdobtnSmall.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION", "SIZE_SMALL");
+        }
+        else if (rdobtnMedium.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION","SIZE_MEDIUM");
+        }
+        else if(rdobtnLarge.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION", "SIZE_LARGE");
+        }
+        else //(rdobtnExtraLarge.isChecked())
+        {
+            calculatePizzaCost.hasExtra("SIZE_EXTRA LARGE");
+        }
+        //CRUST
+        if (rdobtnThin.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION","SIZE_SELECTION");
+        }
+        else if (rdobtnThick.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION", "SIZE_SELECTION");
+        }
+        else //(rdobtnCheeseFilled.isChecked())
+        {
+            calculatePizzaCost.putExtra("SIZE_SELECTION","SIZE_SELECTION");
+        }
+
+        //GARLICCCCCCCCCCCCCCCCC
+        if (chkboxGarlic.isChecked())
+        {
+            calculatePizzaCost.putExtra("HAS_GARLIC_CRUST",false);
+        }
+        else
+        {
+            calculatePizzaCost.putExtra("HAS_GARLIC_CRUST",true);
+        }
+
 
         calculatePizzaCost.putExtra("TOPPINGS_BOOLEANS", hasToppings);
         startActivityForResult(calculatePizzaCost, 0);
